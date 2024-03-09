@@ -50,4 +50,11 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-playRound(getPlayerChoice(), getComputerChoice());
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        playRound(getComputerChoice(), getComputerChoice());
+    }
+}
+
+// playRound(getPlayerChoice(), getComputerChoice());
+playGame();
