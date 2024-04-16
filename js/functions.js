@@ -56,25 +56,22 @@ function playGame() {
     }
 }
 
-function btn_listener() {
-    let div = document.querySelector("#choices");
-    div.addEventListener("click", (e) => {
-        let target = e.target;
-        console.log(e.target);
-        switch(target.id) {
-            case "btn1":
-                console.log("You chose button1!");
-                break;
-            case "btn2":
-                console.log("You chose button2!");
-                break;
-            case "btn3":
-                console.log("You chose button3!");
-                break;
-        }
-    })
-
-}
+let div = document.querySelector("#choices");
+div.addEventListener("click", (e) => {
+    let target = e.target;
+    console.log(e.target);
+    switch(target.id) {
+        case "btn1":
+            console.log("You chose button1!");
+            break;
+        case "btn2":
+            console.log("You chose button2!");
+            break;
+        case "btn3":
+            console.log("You chose button3!");
+            break;
+    }
+})
 
 // playRound(getPlayerChoice(), getComputerChoice());
 // playGame();
