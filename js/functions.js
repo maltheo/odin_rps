@@ -40,13 +40,13 @@ function getPlayerChoice() {
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
-        console.log("It's a tie!");
+        return "It's a tie!";
     } else if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
                (playerSelection == 'paper' && computerSelection == 'rock') ||
                (playerSelection == 'scissors' && computerSelection == 'paper')) {
-        console.log(`You selected ${playerSelection} and your opponent selected ${computerSelection}; you win!`);
+        return `You selected ${playerSelection} and your opponent selected ${computerSelection}; you win!`;
     } else {
-        console.log(`You selected ${playerSelection} and your opponent selected ${computerSelection}; you lose!`);
+        return `You selected ${playerSelection} and your opponent selected ${computerSelection}; you lose!`;
     }
 }
 
@@ -58,19 +58,20 @@ function playGame() {
 
 let div = document.querySelector("#choices");
 div.addEventListener("click", (e) => {
+    // get button name as player choice
     let target = e.target;
-    console.log(e.target);
-    switch(target.id) {
-        case "btn1":
-            console.log("You chose button1!");
-            break;
-        case "btn2":
-            console.log("You chose button2!");
-            break;
-        case "btn3":
-            console.log("You chose button3!");
-            break;
-    }
+    playerSelection = target.textContent.toLowerCase();
+    console.log(`You chose ${playerSelection}!`);
+
+    // use player choice to play a round
+    const game = document.createElement("li");
+    
+    game.textContent = playRound(playerSelection, getComputerChoice());
+
+    // list previous games in webpage
+    const gameList = document.querySelector("#plays");
+    gameList.appendChild(game);
+
 })
 
 // playRound(getPlayerChoice(), getComputerChoice());
